@@ -1,0 +1,34 @@
+server:
+  port: 8087
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wx_shop
+    username: root
+    password: "0405"
+    hikari:
+      max-lifetime: 1000000
+  thymeleaf:
+    cache: false
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+#    url: jdbc:mysql://47.113.224.165:3306/selling-manage
+
+logging:
+  level:
+    com.lrc: debug
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+
+mybatis:
+  type-aliases-package: "com.lrc.entity"
+  mapper-locations: "classpath:mapper/*Mapper.xml"
