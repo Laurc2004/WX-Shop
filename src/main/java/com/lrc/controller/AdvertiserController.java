@@ -16,7 +16,7 @@ public class AdvertiserController {
     @Resource
     private AdvertiserService advertiserService;
 
-    @GetMapping("page/{name}")
+    @GetMapping("/page/{name}")
     public Result<PageInfo<AdvertiserInfo>> findPage(@RequestParam(defaultValue = "1") Integer pageNum,
                                                @RequestParam(defaultValue = "10") Integer pageSize,
                                                @PathVariable String name){

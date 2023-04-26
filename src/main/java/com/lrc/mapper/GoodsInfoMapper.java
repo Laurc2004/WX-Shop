@@ -1,19 +1,12 @@
 package com.lrc.mapper;
 
 import com.lrc.entity.GoodsInfo;
+import org.apache.ibatis.annotations.Param;
+import tk.mybatis.mapper.common.Mapper;
 
-public interface GoodsInfoMapper {
-    int deleteByPrimaryKey(Long id);
+import java.util.List;
 
-    int insert(GoodsInfo record);
+public interface GoodsInfoMapper extends Mapper<GoodsInfo> {
 
-    int insertSelective(GoodsInfo record);
-
-    GoodsInfo selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(GoodsInfo record);
-
-    int updateByPrimaryKeyWithBLOBs(GoodsInfo record);
-
-    int updateByPrimaryKey(GoodsInfo record);
+    List<GoodsInfo> findGoodsByName(@Param("name") String name,@Param("id") Integer id);
 }

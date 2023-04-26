@@ -14,7 +14,7 @@ public class UserController {
     @Resource
     private AdminService adminService;
 
-    @GetMapping("page/{name}")
+    @GetMapping("/page/{name}")
     public Result<PageInfo<UserInfo>> findPage(@RequestParam(defaultValue = "1") Integer pageNum,
                                                @RequestParam(defaultValue = "10") Integer pageSize,
                                                @PathVariable String name){

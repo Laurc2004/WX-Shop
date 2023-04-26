@@ -1,17 +1,14 @@
 package com.lrc.mapper;
 
 import com.lrc.entity.TypeInfo;
+import com.lrc.entity.UserInfo;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.common.Mapper;
 
-public interface TypeInfoMapper {
-    int deleteByPrimaryKey(Long id);
+import java.util.List;
 
-    int insert(TypeInfo record);
-
-    int insertSelective(TypeInfo record);
-
-    TypeInfo selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(TypeInfo record);
-
-    int updateByPrimaryKey(TypeInfo record);
+@Repository
+public interface TypeInfoMapper extends Mapper<TypeInfo> {
+    List<TypeInfo> getUserByName(@Param("name") String name);
 }

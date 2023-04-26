@@ -1,8 +1,16 @@
 package com.lrc.entity;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 
+@Table(name = "goods_info")
 public class GoodsInfo implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -28,6 +36,44 @@ public class GoodsInfo implements Serializable {
     private Integer level;
 
     private String description;
+    private String typeName;
+    private String userName;
+
+    private List<Long> fileList;
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    private String commentStatus;
+
+    public List<Long> getFileList() {
+        return fileList;
+    }
+
+    public void setFileList(List<Long> fileList) {
+        this.fileList = fileList;
+    }
+
+    public String getCommentStatus() {
+        return commentStatus;
+    }
+
+    public void setCommentStatus(String commentStatus) {
+        this.commentStatus = commentStatus;
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -137,25 +183,24 @@ public class GoodsInfo implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", price=").append(price);
-        sb.append(", discount=").append(discount);
-        sb.append(", sales=").append(sales);
-        sb.append(", hot=").append(hot);
-        sb.append(", recommend=").append(recommend);
-        sb.append(", count=").append(count);
-        sb.append(", typeid=").append(typeid);
-        sb.append(", fields=").append(fields);
-        sb.append(", userid=").append(userid);
-        sb.append(", level=").append(level);
-        sb.append(", description=").append(description);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return "GoodsInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", discount=" + discount +
+                ", sales=" + sales +
+                ", hot=" + hot +
+                ", recommend='" + recommend + '\'' +
+                ", count=" + count +
+                ", typeid=" + typeid +
+                ", fields='" + fields + '\'' +
+                ", userid=" + userid +
+                ", level=" + level +
+                ", description='" + description + '\'' +
+                ", typeName='" + typeName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", fileList=" + fileList +
+                ", commentStatus='" + commentStatus + '\'' +
+                '}';
     }
 }
