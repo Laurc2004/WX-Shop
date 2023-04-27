@@ -1,17 +1,10 @@
 package com.lrc.mapper;
 
 import com.lrc.entity.NxSystemFileInfo;
+import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.common.Mapper;
 
-public interface NxSystemFileInfoMapper {
-    int deleteByPrimaryKey(Long id);
+@Repository
+public interface NxSystemFileInfoMapper extends Mapper<NxSystemFileInfo> {
 
-    int insert(NxSystemFileInfo record);
-
-    int insertSelective(NxSystemFileInfo record);
-
-    NxSystemFileInfo selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(NxSystemFileInfo record);
-
-    int updateByPrimaryKey(NxSystemFileInfo record);
 }

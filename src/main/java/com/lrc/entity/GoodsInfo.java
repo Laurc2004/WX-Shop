@@ -1,9 +1,6 @@
 package com.lrc.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,32 +10,35 @@ public class GoodsInfo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
-
+    @Column(name = "price")
     private Double price;
-
+    @Column(name = "discount")
     private Double discount;
-
+    @Column(name = "sales")
     private Integer sales;
-
+    @Column(name = "hot")
     private Integer hot;
-
+    @Column(name = "recommend")
     private String recommend;
-
+    @Column(name = "count")
     private Integer count;
-
+    @Column(name = "typeId")
     private Long typeid;
-
+    @Column(name = "fields")
     private String fields;
-
+    @Column(name = "userId")
     private Long userid;
-
+    @Column(name = "level")
     private Integer level;
-
+    @Column(name = "description")
     private String description;
+    @Transient
     private String typeName;
+    @Transient
     private String userName;
-
+    @Transient
     private List<Long> fileList;
 
     public String getTypeName() {
